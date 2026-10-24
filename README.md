@@ -4,7 +4,7 @@
   
   <p>
     <a href="mailto:vitorjoo944@gmail.com"><img src="https://img.shields.io/badge/Email-vitorjoo944@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
-    <a href="https://linkedin.com/in/SEU_LINKEDIN" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+    <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-alexandre-1918631b0/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   </p>
 </div>
 
@@ -42,8 +42,7 @@ Não apenas programo, mas utilizo IA como um multiplicador de capacidade técnic
 
 ### 📌 Projetos em Destaque
 
-- **[Nome do Projeto 1](https://github.com/warspaceclaw/...)** – Aplicação web construída em React/Node.js com integração de rotinas automatizadas.
-- **[Nome do Projeto 2](https://github.com/warspaceclaw/...)** – Sistema de scraping e automação desenvolvido em Python/Puppeteer.
+- **[PDFQUIZZ](https://antigravity-pdfquizz.vercel.app/)** – Aplicação web construída em React/Node.js com integração de rotinas automatizadas.
 
 ---
 

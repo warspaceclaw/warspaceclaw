@@ -1,6 +1,6 @@
 <div align="center">
   <div align="center">
-  <img src="./header_rsm.svg" width="100%" alt="Victor Alexandre - Process Optimization & RSM" />
+  <img src="./header_rsm" width="100%" alt="Victor Alexandre - Process Optimization & RSM" />
 </div>
   <h1>Olá 👋, eu sou o Victor Alexandre</h1>
   <p><strong>Desenvolvedor Full Stack & Automação | AI-Assisted Engineering</strong></p>

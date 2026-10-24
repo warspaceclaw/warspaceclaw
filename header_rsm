@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 280" width="100%" height="100%" style="background:#080b11; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
+  <defs>
+    <!-- Gradientes -->
+    <linearGradient id="surfaceGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="optimumGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      /* Animação do Ponto Ótimo - Efeito Radar Ping / Expansão */
+      @keyframes ping {
+        0% {
+          r: 5px;
+          opacity: 0.9;
+          stroke-width: 1.5px;
+        }
+        70% {
+          r: 18px;
+          opacity: 0.2;
+          stroke-width: 1px;
+        }
+        100% {
+          r: 24px;
+          opacity: 0;
+          stroke-width: 0.5px;
+        }
+      }
+
+      /* Pulso suave de brilho no ponto ótimo */
+      @keyframes pulseOptimum {
+        0%, 100% {
+          r: 5px;
+          fill: #10b981;
+          filter: drop-shadow(0 0 3px #10b981);
+        }
+        50% {
+          r: 6.5px;
+          fill: #34d399;
+          filter: drop-shadow(0 0 9px #34d399);
+        }
+      }
+
+      /* Efeito de varredura topológica nas curvas de nível (convergência de otimização) */
+      @keyframes contourGlow {
+        0%, 100% {
+          opacity: 0.45;
+          stroke-width: 1.1px;
+        }
+        50% {
+          opacity: 1;
+          stroke-width: 1.8px;
+        }
+      }
+
+      /* Cursor piscante */
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+
+      /* Pulso do status LED */
+      @keyframes ledPulse {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px #10b981); }
+        50% { opacity: 0.35; filter: none; }
+      }
+
+      /* Partícula molecular em órbita do ponto ótimo */
+      @keyframes orbit {
+        from { transform: rotate(0deg) translateX(26px) rotate(0deg); }
+        to   { transform: rotate(360deg) translateX(26px) rotate(-360deg); }
+      }
+
+      /* Classes utilitárias de animação */
+      .ping-ring {
+        animation: ping 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        transform-origin: 190px 62px;
+      }
+      .ping-ring-delayed {
+        animation: ping 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        animation-delay: 1.25s;
+        transform-origin: 190px 62px;
+      }
+      .optimum-center {
+        animation: pulseOptimum 2s ease-in-out infinite;
+      }
+      .c-level-1 { animation: contourGlow 3.5s ease-in-out infinite; animation-delay: 0.2s; }
+      .c-level-2 { animation: contourGlow 3.5s ease-in-out infinite; animation-delay: 0.6s; }
+      .c-level-3 { animation: contourGlow 3.5s ease-in-out infinite; animation-delay: 1.0s; }
+      .c-level-4 { animation: contourGlow 3.5s ease-in-out infinite; animation-delay: 1.4s; }
+      .c-level-5 { animation: contourGlow 3.5s ease-in-out infinite; animation-delay: 1.8s; }
+      .c-level-6 { animation: contourGlow 3.5s ease-in-out infinite; animation-delay: 2.2s; }
+      
+      .cursor-blink { animation: blink 1s step-start infinite; }
+      .led-pulse { animation: ledPulse 2s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Borda do Container Estilo IDE -->
+  <rect x="1" y="1" width="848" height="278" rx="8" fill="#080b11" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Top Bar: Status & Branch -->
+  <path d="M 1 38 L 849 38" stroke="#1e293b" stroke-width="1"/>
+  <text x="24" y="24" fill="#64748b" font-size="12" letter-spacing="1">victor-alexandre · main</text>
+  
+  <g transform="translate(695, 14)">
+    <circle cx="12" cy="10" r="4" fill="#10b981" class="led-pulse" />
+    <text x="22" y="14" fill="#10b981" font-size="12" letter-spacing="0.5" font-weight="600">RSM · DoE: R² 0.994</text>
+  </g>
+
+  <!-- Painel Esquerdo: Identidade & Foco Científico -->
+  <text x="36" y="94" fill="#f8fafc" font-size="30" font-weight="700" letter-spacing="-0.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif">Victor Alexandre</text>
+  
+  <text x="36" y="126" fill="url(#neonCyan)" font-size="13" font-weight="700" letter-spacing="2.5">PROCESS OPTIMIZATION · CHEMOMETRICS</text>
+
+  <text x="36" y="162" fill="#94a3b8" font-size="12.5" letter-spacing="0.2">
+    Response Surface (RSM) · DoE · PCA · Kinetic Modeling
+  </text>
+  <text x="36" y="184" fill="#64748b" font-size="12" letter-spacing="0.5">
+    ŷ = β₀ + ∑ βᵢxᵢ + ∑ βᵢᵢxᵢ² + ∑ βᵢⱼxᵢxⱼ + ε
+  </text>
+
+  <!-- Badge / Card de Status Experimental -->
+  <g transform="translate(36, 212)">
+    <rect width="280" height="34" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <circle cx="16" cy="17" r="4" fill="#38bdf8" filter="url(#glow)"/>
+    <text x="30" y="21" fill="#cbd5e1" font-size="11" font-weight="500">Optimum: T=78.5°C | t=42min | Yield 98.2%</text>
+  </g>
+
+  <!-- Divisória Central Vertical -->
+  <line x1="440" y1="38" x2="440" y2="278" stroke="#1e293b" stroke-dasharray="4 4" stroke-width="1"/>
+
+  <!-- Painel Direito: Superfície de Resposta 3D Animada -->
+  <g transform="translate(460, 50)">
+    <!-- Label do Diagrama -->
+    <text x="10" y="14" fill="#64748b" font-size="11" letter-spacing="1">SURFACE_RESPONSE_3D [CCD/Box-Behnken]</text>
+
+    <!-- Eixos Cartesianos 3D Isométricos -->
+    <!-- Eixo Z (Rendimento / Response Y) -->
+    <line x1="60" y1="160" x2="60" y2="35" stroke="#475569" stroke-width="1.2"/>
+    <polyline points="57,40 60,32 63,40" fill="none" stroke="#475569" stroke-width="1.2"/>
+    <text x="38" y="28" fill="#38bdf8" font-size="10" font-weight="600">Yield (%)</text>
+
+    <!-- Eixo X1 (Fator 1: Temperatura) -->
+    <line x1="60" y1="160" x2="190" y2="200" stroke="#475569" stroke-width="1.2"/>
+    <text x="195" y="206" fill="#94a3b8" font-size="10">X₁: Temp (°C)</text>
+
+    <!-- Eixo X2 (Fator 2: Tempo / Agitação) -->
+    <line x1="60" y1="160" x2="330" y2="140" stroke="#475569" stroke-width="1.2"/>
+    <text x="310" y="132" fill="#94a3b8" font-size="10">X₂: Tempo (min)</text>
+
+    <!-- Curvas da Superfície de Resposta com pulsação topológica sequencial -->
+    <!-- Nível Base (Iso-curvas inferiores) -->
+    <path class="c-level-1" d="M 90,165 Q 180,185 270,150" fill="none" stroke="#0369a1" stroke-width="1" stroke-dasharray="2 2"/>
+    <path class="c-level-2" d="M 80,145 Q 180,170 280,135" fill="none" stroke="#0284c7" stroke-width="1.2"/>
+    
+    <!-- Curvas intermediárias da colina/superfície -->
+    <path class="c-level-3" d="M 75,125 Q 180,150 290,118" fill="none" stroke="#06b6d4" stroke-width="1.3"/>
+    <path class="c-level-4" d="M 85,105 Q 185,130 285,100" fill="none" stroke="#22d3ee" stroke-width="1.4"/>
+    <path class="c-level-5" d="M 105,85  Q 185,110 270,82"  fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+    <path class="c-level-6" d="M 130,68  Q 185,92  250,68"  fill="none" stroke="#34d399" stroke-width="1.7"/>
+    
+    <!-- Curvas Transversais (Gerando o grid 3D da malha) -->
+    <path d="M 90,165 Q 110,110 130,68" fill="none" stroke="#0284c7" stroke-width="0.8" opacity="0.6"/>
+    <path d="M 135,172 Q 155,100 165,65" fill="none" stroke="#06b6d4" stroke-width="0.8" opacity="0.7"/>
+    <path d="M 180,180 Q 185,95 190,62" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.8"/>
+    <path d="M 225,166 Q 220,95 218,65" fill="none" stroke="#06b6d4" stroke-width="0.8" opacity="0.7"/>
+    <path d="M 270,150 Q 255,105 250,68" fill="none" stroke="#0284c7" stroke-width="0.8" opacity="0.6"/>
+
+    <!-- Radar Pings no Ponto Ótimo de Máximo (Ondas concêntricas expansivas) -->
+    <circle cx="190" cy="62" r="5" fill="none" stroke="#34d399" class="ping-ring"/>
+    <circle cx="190" cy="62" r="5" fill="none" stroke="#38bdf8" class="ping-ring-delayed"/>
+
+    <!-- Ponto Ótimo com Pulsação de Brilho -->
+    <circle cx="190" cy="62" r="5" class="optimum-center" filter="url(#optimumGlow)"/>
+
+    <!-- Órbita de Molécula/Catalisador ao redor do Pico de Resposta -->
+    <g transform="translate(190, 62)">
+      <!-- Anel elíptico sutil da órbita -->
+      <ellipse cx="0" cy="0" rx="28" ry="11" fill="none" stroke="#38bdf8" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.5" transform="rotate(-15)"/>
+      <!-- Partícula orbital -->
+      <g style="animation: orbit 4s linear infinite;">
+        <circle cx="0" cy="0" r="2.5" fill="#38bdf8" filter="url(#glow)"/>
+      </g>
+    </g>
+    
+    <!-- Rótulo do Ponto Ótimo -->
+    <line x1="190" y1="62" x2="225" y2="40" stroke="#34d399" stroke-width="1"/>
+    <text x="230" y="38" fill="#34d399" font-size="10" font-weight="700">max [ŷ = 98.2%]</text>
+
+    <!-- Versão no canto inferior direito com Cursor Piscante -->
+    <text x="310" y="218" fill="#64748b" font-size="11">v2.1.0</text>
+    <rect x="352" y="208" width="6" height="12" fill="#38bdf8" rx="1" class="cursor-blink"/>
+  </g>
+</svg>
